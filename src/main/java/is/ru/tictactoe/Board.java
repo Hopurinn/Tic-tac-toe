@@ -18,4 +18,9 @@ public class Board{
 		String s = "1 2 3 \n 4 5 6 \n 7 8 9";
 		return s;
 	}
+	
+	public static char updateBoard(int number){
+		board[number] = 'X';
+		return board[number];
+	}
 }
