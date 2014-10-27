@@ -1,3 +1,5 @@
+package is.ru.tictactoe;
+
 import static org.junit.Assert.*;
 import org.junit.Test;
 
@@ -6,13 +8,16 @@ public class BoardTest {
 		org.junit.runner.JUnitCore.main("is.ru.tictactoe.BoardTest");
 	}
 
+	private Board board = new Board();
+
 	@Test
 	public void drawBasicInitializedBoard() {
-		assertEquals("1 2 3 \n 4 5 6 \n 7 8 9", Board.drawBoard());
+		assertEquals("1 2 3 \n 4 5 6 \n 7 8 9", board.drawBoard());
 	}
 
 	@Test
 	public void testPositionOnInitializedBoard() {
-		assertEquals(true, Board.checkPosition(0));
+		Board board = new Board();
+		assertEquals(true, board.checkPosition(0));
 	}
 }

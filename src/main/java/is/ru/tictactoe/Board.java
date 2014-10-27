@@ -1,3 +1,5 @@
+package is.ru.tictactoe;
+
 public class Board{
 	private static char[] board;
 	//Constructor
@@ -20,6 +22,9 @@ public class Board{
 	}
 
 	public static boolean checkPosition(int index) {
+		if (board[index] == 'X' || board[index] == 'O') {
+			return false;
+		}
 		return true;
 	}
 }
