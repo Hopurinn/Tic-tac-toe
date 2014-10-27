@@ -1,11 +1,17 @@
+package tictactoe;
+
+import java.util.Scanner;
 public class Player {
 
-	public void makeMove(){
-		if(checkpositionc == false){
-			System.out.println("positionc in play");
-		} else {
-			updateboard
-		}
+	public static int makeMove(){
+		String ch = ""; 
+		Scanner in = new Scanner(System.in);
+            	ch=in.nextLine();
+		return ch;
+	}
+	
+	public static void Player(){
+	
 	}
 
 }
