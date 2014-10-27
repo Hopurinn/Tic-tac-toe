@@ -13,4 +13,9 @@ public class Board{
                         board[i] = (char) num;
                 }
         }
+	public static String drawBoard(){
+		//do stuff
+		String s = "1 2 3 \n 4 5 6 \n 7 8 9";
+		return s;
+	}
 }
