@@ -1,0 +1,79 @@
+public boolean checkForWin() {
+	
+                
+       return ( checkRowsForWin() || checkColumnsForWin() || checkDiagonalsForWin())
+
+}
+
+
+private boolean checkRowsForWin() {
+                  for (int i = 0; i< 3; i++) {
+                            if( board [i] == 'X' ) {
+                                      return true;
+                                     }
+                             else if(board [i] == 'O'){
+                                      return true;
+                                     }
+				
+                                 }
+		 for (int i = 3; i< 6; i++) {
+                            if( board [i] == 'X' ) {
+                                      return true;
+                                     }
+                             else if(board [i] == 'O'){
+                                      return true;
+                                     }
+				
+                                  }
+                for (int i = 6; i< 9; i++) {
+                            if( board [i] == 'X' ) {
+                                      return true;
+                                     }
+                             else if(board [i] == 'O'){
+                                      return true;
+                                     }
+				
+                                 }
+                       return false;
+                   }
+
+
+
+
+private boolean checkColumnsForWin(){
+			for (int i=0; i<3; i++) {
+				for ( int j=3 ; j<6; i++){
+					for(int k=6; k<9; i++){
+			if(board[i] && board[j] && board[k] == 'X') {
+				return true;
+			}
+
+		else if(board[i] && board[j] && board[k] == 'O'){
+    				 return true;
+					}
+
+}
+}
+}
+return false;
+}
+
+private boolean checkDiagonalsForWin() {
+
+if(board[0] && board[4] && board[8] == 'X'){
+ return true;
+}
+
+else if(board[2] && board[4] && board[6] == 'X') {
+return true;
+}
+else if(board[0] && board[4] && board[8] == 'O'){
+ return true;
+}
+else if(board[2] && board[4] && board[6] == 'O'){
+ return true;
+}
+
+return false;
+
+}

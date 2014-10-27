@@ -20,4 +20,9 @@ public class BoardTest {
 		Board board = new Board();
 		assertEquals(true, board.checkPosition(0));
 	}
+
+	@Test
+	public void updateBoard() {
+		assertEquals('X', board.updateBoard(2));
+	}
 }

@@ -27,4 +27,9 @@ public class Board{
 		}
 		return true;
 	}
+
+	public static char updateBoard(int number){
+		board[number] = 'X';
+		return board[number];
+	}
 }
