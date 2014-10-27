@@ -1,7 +1,17 @@
 package is.ru.tictactoe;
 
+import java.util.Scanner;
+
 public class TicTacToe {
-	public static int player(String text) {
-		return 1;
+	public static Scanner input = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		Game game = new Game();
+		String c;
+		do {
+			System.out.println(game.run());
+			System.out.println("Do you want to play again?(y/n)");
+			c = input.nextLine();
+		} while(c == "y");
 	}
 }
