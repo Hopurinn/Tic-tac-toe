@@ -71,8 +71,7 @@ public class Board{
 
 				if (xcounter == 3)
 					return 'X';
-			
-				else if (ocounter ==3)
+				else if (ocounter == 3)
 					return 'O';
 			}
 		}
@@ -80,6 +79,23 @@ public class Board{
 	}
 
 	public static char checkColumns(){
+		//Searching for win in columns
+		for(int col = 0; col < 3; col++){
+			int xcount = 0;
+			int ocount = 0;
+			for(int row = 0; row < 3; row++){
+				if(board[row][col] == 'X')
+					xcount++;
+				else if(board[row][col] == 'O')
+					ocount++;
+
+				if(xcount == 3)
+					return 'X';
+				else if(ocount == 3)
+					return 'O';
+			}
+		}
+		//Neither x or o returned, it is a draw (D)
 		return 'D';
 	}
 }
