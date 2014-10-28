@@ -4,17 +4,18 @@ public class Board{
 	private static char[][] board;
 	//Constructor
         public Board(){
-                //Create an array of size 9 that represents board
+                //Create an double char array of size 3x3 that represents the board
                 board = new char[3][3];
-		int num = 0;
-                //Initialize board with the number of the field
+		//Create an character for the number of field in board
+		char num = '1';
 		/* 1 2 3
 		*  4 5 6
 		*  7 8 9 */
+		//Initialize array
                 for (int i = 0; i < 3; i++){
 			for (int j = 0; j < 3; j++) { 
+                        	board[i][j] = num;
 				num++;
-                        	board[i][j] = (char) num;
 			}
                 }
         }
