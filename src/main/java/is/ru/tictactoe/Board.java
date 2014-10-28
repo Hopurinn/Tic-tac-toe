@@ -100,6 +100,25 @@ public class Board{
 	}
 
 	public static char checkDiagonal(){
+		//Check for X wins
+
+		//Check for win \
+		if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X')
+			return 'X';
+		//Check for win /
+		else if(board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X')
+			return 'X';
+
+		//Check for O wins
+
+		//Check for \ win
+		else if(board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
+			return 'O';
+		//Check for / win
+		else if(board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')
+			return 'O';
+
+		//Nothing returned, it is a draw (D)
 		return 'D';
 	}
 }
