@@ -23,7 +23,7 @@ public class BoardTest {
 
 	@Test
 	public void testUpdateBoard() {
-		assertEquals('X', board.updateBoard(2,2));
+		assertEquals('X', board.updateBoard('X',2,2));
 	}
 
 	@Test

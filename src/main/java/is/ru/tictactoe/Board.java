@@ -49,8 +49,8 @@ public class Board{
 		return true;
 	}
 
-	public static char updateBoard(int row, int column){
-		board[row][column] = 'X';
+	public static char updateBoard(char player, int row, int column){
+		board[row][column] = player;
 		return board[row][column];
 	}
 
