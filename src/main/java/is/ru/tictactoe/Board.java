@@ -98,4 +98,8 @@ public class Board{
 		//Neither x or o returned, it is a draw (D)
 		return 'D';
 	}
+
+	public static char checkDiagonal(){
+		return 'D';
+	}
 }

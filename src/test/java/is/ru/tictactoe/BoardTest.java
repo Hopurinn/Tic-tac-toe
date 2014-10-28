@@ -40,4 +40,9 @@ public class BoardTest {
 	public void testCheckColumns() {
 		assertEquals('D', board.checkColumns());
 	}
+
+	@Test
+	public void testCheckDiagonal() {
+		assertEquals('D', board.checkDiagonal());
+	}
 }
