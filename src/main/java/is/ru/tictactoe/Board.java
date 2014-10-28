@@ -78,4 +78,8 @@ public class Board{
 		}
 		return 'D';
 	}
+
+	public static char checkColumns(){
+		return 'D';
+	}
 }

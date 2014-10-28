@@ -35,4 +35,9 @@ public class BoardTest {
 	public void testCheckRows() {
 		assertEquals('D', board.checkRows());
 	}
+
+	@Test
+	public void testCheckColumns() {
+		assertEquals('D', board.checkColumns());
+	}
 }
