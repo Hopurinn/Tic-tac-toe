@@ -26,8 +26,11 @@ public class Board{
 			for(int j = 0; j < 3; j++){
 				drawStr += board[i][j] + " | ";
 				if((i == 0 && j == 2) || (i == 1 && j == 2)){
-					drawStr += "\n | ";
+					drawStr += "\n ";
 				}
+			}
+			if(i == 0 || i == 1){
+				drawStr += " --- --- --- \n | ";
 			}
 		}
 		return drawStr;
