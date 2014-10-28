@@ -20,9 +20,14 @@ public class Board{
                 }
         }
 	public static String drawBoard(){
-		//do stuff
-		String s = "1 2 3 \n 4 5 6 \n 7 8 9";
-		return s;
+		//Create a string that reads board
+		String drawStr = "";
+		for(int i = 0; i < 3; i++){
+			for(int j = 0; j < 3; j++){
+				drawStr += board[i][j];
+			}
+		}
+		return drawStr;
 	}
 
 	public static boolean checkPosition(int row, int column) {
