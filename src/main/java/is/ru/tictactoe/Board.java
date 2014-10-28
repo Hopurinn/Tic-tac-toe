@@ -35,4 +35,29 @@ public class Board{
 		board[row][column] = 'X';
 		return board[row][column];
 	}
+
+	public static char checkForWin() {
+		return checkRows();
+	}
+
+	public static char checkRows() {
+		for (int i = 0; i < 3; i++) {
+			int xcounter = 0;
+			int ocounter = 0;
+
+			for (int j = 0; j < 3; j++) {
+				if (board[i][j] == 'X')
+					xcounter++;
+				else if (board[i][j] == 'O')
+					ocounter++;
+
+				if (xcounter == 3)
+					return 'X';
+			
+				else if (ocounter ==3)
+					return 'O';
+			}
+		}
+		return 'D';
+	}
 }

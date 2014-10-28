@@ -11,18 +11,28 @@ public class BoardTest {
 	private Board board = new Board();
 
 	@Test
-	public void drawBasicInitializedBoard() {
+	public void testDrawBoard() {
 		assertEquals("1 2 3 \n 4 5 6 \n 7 8 9", board.drawBoard());
 	}
 
 	@Test
-	public void testPositionOnInitializedBoard() {
+	public void testCheckPosition() {
 		Board board = new Board();
-		assertEquals(true, board.checkPosition(2, 2));
+		assertEquals(true, board.checkPosition(2,2));
 	}
 
 	@Test
-	public void updateBoard() {
+	public void testUpdateBoard() {
 		assertEquals('X', board.updateBoard(2,2));
+	}
+
+	@Test
+	public void testCheckForWin() {
+		assertEquals('D', board.checkForWin());	
+	}
+
+	@Test
+	public void testCheckRows() {
+		assertEquals('D', board.checkRows());
 	}
 }
