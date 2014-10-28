@@ -18,11 +18,11 @@ public class BoardTest {
 	@Test
 	public void testPositionOnInitializedBoard() {
 		Board board = new Board();
-		assertEquals(true, board.checkPosition(0));
+		assertEquals(true, board.checkPosition(2, 2));
 	}
 
 	@Test
 	public void updateBoard() {
-		assertEquals('X', board.updateBoard(2));
+		assertEquals('X', board.updateBoard(2,2));
 	}
 }

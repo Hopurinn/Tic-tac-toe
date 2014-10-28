@@ -1,18 +1,21 @@
 package is.ru.tictactoe;
 
 public class Board{
-	private static char[] board;
+	private static char[][] board;
 	//Constructor
         public Board(){
                 //Create an array of size 9 that represents board
-                board = new char[9];
+                board = new char[3][3];
+		int num = 0;
                 //Initialize board with the number of the field
 		/* 1 2 3
 		*  4 5 6
-		*  7 8 9 */ 
-                for(int i = 0; i < 9; i++){
-			int num = i+1;
-                        board[i] = (char) num;
+		*  7 8 9 */
+                for (int i = 0; i < 3; i++){
+			for (int j = 0; j < 3; j++) { 
+				num++;
+                        	board[i][j] = (char) num;
+			}
                 }
         }
 	public static String drawBoard(){
@@ -21,15 +24,15 @@ public class Board{
 		return s;
 	}
 
-	public static boolean checkPosition(int index) {
-		if (board[index] == 'X' || board[index] == 'O') {
+	public static boolean checkPosition(int row, int column) {
+		if (board[row][column] == 'X' || board[row][column] == 'O') {
 			return false;
 		}
 		return true;
 	}
 
-	public static char updateBoard(int number){
-		board[number] = 'X';
-		return board[number];
+	public static char updateBoard(int row, int column){
+		board[row][column] = 'X';
+		return board[row][column];
 	}
 }
