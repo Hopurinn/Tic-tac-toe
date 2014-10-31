@@ -11,29 +11,35 @@ public class Game {
 		char player1 = getPlayer();
 		char player2 = getPlayer();
 		int move;
-
+		int isDraw = 0;
 		board.drawBoard();
 		while (!gameWon) {
 			do {
 			move = getMove(player1);
 			} while (board.checkPosition(move));
+			isDraw++;
 			board.updateBoard(player1, move);
 
 			gameWon = board.checkForWin();
 
-			if (gameWon)
+			if (gameWon || isDraw == 9)
 				break;
 
 			do {
 			move = getMove(player2);
 			} while (board.checkPosition(move));
+			isDraw++;
 			board.updateBoard(player2, move);
 
 			gameWon = board.checkForWin();
 		}
-
-		char winner = board.checkForWinner();
-		System.out.println(winner + " wins");
+		if(isDraw == 9){
+			System.out.println("DRAW!");
+		}
+		else{
+			char winner = board.checkForWinner();
+			System.out.println(winner + " wins");
+		}
 	}
 
 	public static int getMove(char player) {
