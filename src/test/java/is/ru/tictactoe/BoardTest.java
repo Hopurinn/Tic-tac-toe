@@ -11,8 +11,45 @@ public class BoardTest {
 	}
 
 	@Test
+	public void testBoard() {
+		assertEquals('1', board.board[0][0]);
+	}
+
+	@Test
 	public void testValidateMove() {
 		assertEquals(false, board.validateMove(2));
+	}
+
+	@Test
+	public void testFindRow() {
+		assertEquals(0, board.findRow(1));
+	}
+
+	@Test
+	public void testFindColumn() {
+		assertEquals(0, board.findRow(1));
+	}
+
+	@Test
+	public void testUpdateBoard() {
+		board.updateBoard('o',1);
+		assertEquals('o', board.board[0][0]);
+	}
+
+	@Test
+	public void testWinnerFound() {
+		assertEquals(false, board.winnerFound());
+	}
+
+	@Test
+	public void testFindWinner() {
+		assertEquals('D', board.findWinner());
+
+		// test 2
+		board.board[0][0] = 'X';
+		board.board[1][0] = 'X';
+		board.board[2][0] = 'X';
+		assertEquals('X', board.findWinner());
 	}
 
 	@Test
