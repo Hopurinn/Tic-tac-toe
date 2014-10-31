@@ -16,28 +16,28 @@ public class Game {
 		while (!gameWon) {
 			do {
 			move = getMove(player1);
-			} while (board.checkPosition(move));
+			} while (board.validateMove(move));
 			isDraw++;
 			board.updateBoard(player1, move);
 
-			gameWon = board.checkForWin();
+			gameWon = board.winnerFound();
 
 			if (gameWon || isDraw == 9)
 				break;
 
 			do {
 			move = getMove(player2);
-			} while (board.checkPosition(move));
+			} while (board.validateMove(move));
 			isDraw++;
 			board.updateBoard(player2, move);
 
-			gameWon = board.checkForWin();
+			gameWon = board.winnerFound();
 		}
 		if(isDraw == 9){
 			System.out.println("DRAW!");
 		}
 		else{
-			char winner = board.checkForWinner();
+			char winner = board.findWinner();
 			System.out.println(winner + " wins");
 		}
 	}
