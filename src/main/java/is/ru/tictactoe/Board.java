@@ -19,7 +19,7 @@ public class Board{
 			}
                 }
         }
-	public static void drawBoard(){
+	public void drawBoard(){
 		//Create a string that reads board
 		System.out.print( " | ");
 		//Go through array 
@@ -43,7 +43,7 @@ public class Board{
 
 	// function that checks if the number entered 
 	// is still available
-	public static boolean validateMove(int num) {
+	public boolean validateMove(int num) {
 		// initialize a boolean variable to true
 		boolean moveInvalid = true;
 
@@ -62,7 +62,7 @@ public class Board{
 	}
 
 	// function to identify the row of the number entered
-	private static int findRow(int num) {
+	public int findRow(int num) {
 		// initialize the row to 0
 		// this is ok because this function is only used
 		// when the input is valid/available
@@ -83,7 +83,7 @@ public class Board{
 	}
 
 	// function to identify the column of the number entered
-        private static int findColumn(int num) {
+        public int findColumn(int num) {
 		// initialize the row to 0
                 // this is ok because this function is only used
                 // when the input is valid/available
@@ -104,7 +104,7 @@ public class Board{
 
 	// function to update the board from it's current number
 	// to the corresponding player's identifier
-	public static void updateBoard(char player, int num){
+	public void updateBoard(char player, int num){
 		// initialize row and column corresponding 
 		// to where the number is in the board
 		int row = findRow(num);
@@ -118,7 +118,7 @@ public class Board{
 
 	// function to check if any player has won the game
 	// and returns true if a winner is found and false if not
-	public static boolean winnerFound() {
+	public boolean winnerFound() {
 		// checks if any player has won by getting a whole row
 		if (checkRows() == 'X' || checkRows() == 'O')
 			return true;
@@ -135,7 +135,7 @@ public class Board{
 
 	// function that checks if someone has won yet
 	// and returns who won
-	public static char findWinner() {
+	public char findWinner() {
 		if (checkRows() == 'X' || checkRows() == 'O')
 			return checkRows();
 		else if (checkColumns() == 'X' || checkColumns() == 'O')
@@ -148,7 +148,7 @@ public class Board{
 
 	// function that checks all rows, if a player has won 
 	// it returns the players identifier
-	public static char checkRows() {
+	public char checkRows() {
 		for (int row = 0; row < 3; row++) {
 			int xcount = 0;
 			int ocount = 0;
@@ -170,7 +170,7 @@ public class Board{
 
 	// function that checks all columns, if a plyer has won
 	// it returns the players identifier
-	public static char checkColumns(){
+	public char checkColumns(){
 		//Searching for win in columns
 		for(int col = 0; col < 3; col++){
 			int xcount = 0;
@@ -191,8 +191,8 @@ public class Board{
 		return 'D';
 	}
 
-	public static char checkDiagonal(){
-	//Check for X wins
+	public char checkDiagonal(){
+		//Check for X wins
 		//Check for win \
 		if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X'
 		|| board[0][0] == 'x' && board[1][1] == 'x' && board[2][2] == 'x')
@@ -202,7 +202,7 @@ public class Board{
 		|| board[0][2] == 'x' && board[1][1] == 'x' && board[2][0] == 'x')
 			return 'X';
 
-	//Check for O wins
+		//Check for O wins
 		//Check for \ win
 		else if(board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O'
 		|| board[0][0] == 'o' && board[1][1] == 'o' && board[2][2] == 'o')
