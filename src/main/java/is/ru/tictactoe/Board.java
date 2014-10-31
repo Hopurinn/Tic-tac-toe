@@ -178,29 +178,28 @@ public class Board{
 		return 'D';
 	}
 
+	// function that checks the board for diagonal win
 	public char checkDiagonal(char player){
-
+		// counts to three to determine win
 		int count = 0;
-		int j = 2;
 
 		for (int i = 0; i < 3; i++) {
 			if(board[i][i] == player)
 				count++;
+			if(count == 3)
+				return player;
 		}
-		if(count == 3)
-			return player;
-		else
-			count = 0;
+		count = 0;
 
 		for (int i = 0; i < 3; i++) {
-			if(board[i][j] == player)
-				count++;
-			j--;
+			for (int j = 2; j > -1; j--) {
+				if(board[i][j] == player)
+					count++;
+			}
+			if(count == 3)
+				return player;
 		}
 
-		if (count == 3)
-			return player;
-		else
-			return 'D';
+		return 'D';
 	}
 }
