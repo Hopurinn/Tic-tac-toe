@@ -153,22 +153,24 @@ public class Board{
 	}
 
 	public static char checkDiagonal(){
-		//Check for X wins
-
+	//Check for X wins
 		//Check for win \
-		if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X')
+		if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X'
+		|| board[0][0] == 'x' && board[1][1] == 'x' && board[2][2] == 'x')
 			return 'X';
 		//Check for win /
-		else if(board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X')
+		else if(board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X'
+		|| board[0][2] == 'x' && board[1][1] == 'x' && board[2][0] == 'x')
 			return 'X';
 
-		//Check for O wins
-
+	//Check for O wins
 		//Check for \ win
-		else if(board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O')
+		else if(board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O'
+		|| board[0][0] == 'o' && board[1][1] == 'o' && board[2][2] == 'o')
 			return 'O';
 		//Check for / win
-		else if(board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O')
+		else if(board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O'
+		|| board[0][2] == 'o' && board[1][1] == 'o' && board[2][0] == 'o')
 			return 'O';
 
 		//Nothing returned, it is a draw (D)
