@@ -112,19 +112,18 @@ public class Board{
 	}
 
 	public static char checkRows() {
-		for (int i = 0; i < 3; i++) {
-			int xcounter = 0;
-			int ocounter = 0;
+		for (int row = 0; row < 3; row++) {
+			int xcount = 0;
+			int ocount = 0;
+			for (int col = 0; col < 3; col++) {
+				if (board[row][col] == 'X' || board[row][col] == 'x')
+					xcount++;
+				else if (board[row][col] == 'O' || board[row][col] == 'o')
+					ocount++;
 
-			for (int j = 0; j < 3; j++) {
-				if (board[i][j] == 'X')
-					xcounter++;
-				else if (board[i][j] == 'O')
-					ocounter++;
-
-				if (xcounter == 3)
+				if (xcount == 3)
 					return 'X';
-				else if (ocounter == 3)
+				else if (ocount == 3)
 					return 'O';
 			}
 		}
@@ -137,9 +136,9 @@ public class Board{
 			int xcount = 0;
 			int ocount = 0;
 			for(int row = 0; row < 3; row++){
-				if(board[row][col] == 'X')
+				if(board[row][col] == 'X' || board[row][col] == 'x')
 					xcount++;
-				else if(board[row][col] == 'O')
+				else if(board[row][col] == 'O' || board[row][col] == 'o')
 					ocount++;
 
 				if(xcount == 3)
