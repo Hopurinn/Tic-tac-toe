@@ -9,6 +9,7 @@
 
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+apply plugin: 'application'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
@@ -21,3 +22,21 @@ dependencies {
 }
 
 sourceCompatibility = 1.7
+
+mainClassName = "is.ru.tictactoe.TicTacToe"
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'is.ru.tictactoe.TicTacToe'
+    }
+}
+
+// Publishing the JAR file
+uploadArchives {
+    repositories {
+       flatDir {
+           dirs 'repos'
+       }
+    }
+}
+
