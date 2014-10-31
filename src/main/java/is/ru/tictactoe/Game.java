@@ -16,7 +16,7 @@ public class Game {
 		while (!gameWon) {
 			do {
 			move = getMove(player1);
-			} while (board.checkPosition(move));
+			} while (board.validateMove(move));
 			isDraw++;
 			board.updateBoard(player1, move);
 
@@ -27,7 +27,7 @@ public class Game {
 
 			do {
 			move = getMove(player2);
-			} while (board.checkPosition(move));
+			} while (board.validateMove(move));
 			isDraw++;
 			board.updateBoard(player2, move);
 

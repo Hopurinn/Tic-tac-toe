@@ -19,7 +19,7 @@ public class Board{
 			}
                 }
         }
-	public static void  drawBoard(){
+	public static void drawBoard(){
 		//Create a string that reads board
 		System.out.print( " | ");
 		//Go through array 
@@ -39,22 +39,24 @@ public class Board{
 			}
 		}
 		System.out.println();
-		//Return the array with separators (the board)
-		//return drawStr;
 	}
 
-	public static boolean checkPosition(int num) {
-		boolean moveValid = true;
+	// function that checks if the number entered 
+	// is still available
+	public static boolean validateMove(int num) {
+		// initialize a boolean variable to true
+		boolean moveInvalid = true;
 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				if (board[i][j] ==  num) {
-					moveValid = false;
+				if ((char) num + 48 == board[i][j]) {
+					// if the value is foun
+					moveInvalid = false;
 				}
 			}
 		}
 
-		return moveValid;
+		return moveInvalid;
 	}
 
 	public static int findRow(int num) {

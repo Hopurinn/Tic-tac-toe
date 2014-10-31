@@ -4,21 +4,15 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class BoardTest {
+	private Board board = new Board();
+
 	public void main(String args[]) {
 		org.junit.runner.JUnitCore.main("is.ru.tictactoe.BoardTest");
 	}
 
-	private Board board = new Board();
-
-	
-	
-	
-	
-
 	@Test
-	public void testCheckPosition() {
-		Board board = new Board();
-		assertEquals(true, board.checkPosition(2));
+	public void testValidateMove() {
+		assertEquals(false, board.validateMove(2));
 	}
 
 	@Test
