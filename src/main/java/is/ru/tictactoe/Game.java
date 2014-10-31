@@ -15,17 +15,17 @@ public class Game {
 		board.drawBoard();
 		while (!gameWon) {
 			do {
-			move = getMove();
+			move = getMove(player1);
 			} while (board.checkPosition(move));
 			board.updateBoard(player1, move);
 
 			gameWon = board.checkForWin();
 
-			if (!gameWon)
+			if (gameWon)
 				break;
 
 			do {
-			move = getMove();
+			move = getMove(player2);
 			} while (board.checkPosition(move));
 			board.updateBoard(player2, move);
 
@@ -36,8 +36,8 @@ public class Game {
 		System.out.println(winner + " wins");
 	}
 
-	public static int getMove() {
-		System.out.print("Make Your Move: ");
+	public static int getMove(char player) {
+		System.out.print("Make Your Move " + player + " :");
 		int move = sc.nextInt();
 
 		return move;
