@@ -50,44 +50,67 @@ public class Board{
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
 				if ((char) num + 48 == board[i][j]) {
-					// if the value is foun
+					// if the value is found, make moveInvalid false
 					moveInvalid = false;
 				}
 			}
 		}
 
+		// return the boolean variable moveInvalid
+		// valid = false, invalid = true
 		return moveInvalid;
 	}
 
-	public static int findRow(int num) {
+	// function to identify the row of the number entered
+	private static int findRow(int num) {
+		// initialize the row to 0
+		// this is ok because this function is only used
+		// when the input is valid/available
 		int row = 0;
+
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
+				// changes num to it's corresponding ASCII value
+				// which can be compared to the boards char
 				if ((char) num + 48 == board[i][j]) {
 					row = i;
 				}
 			}
 		}
+
+		// return the row of num
 		return row;
 	}
 
-        public static int findColumn(int num) {
+	// function to identify the column of the number entered
+        private static int findColumn(int num) {
+		// initialize the row to 0
+                // this is ok because this function is only used
+                // when the input is valid/available
                 int column = 0;
                 for (int i = 0; i < 3; i++) {
                         for (int j = 0; j < 3; j++) {
+				// changes num to it's corresponding ASCII value
+				// which can be compared to the boards char
                                 if ((char) num + 48 == board[i][j]) {
                                         column = j;
                                 }
                         }
                 }
+
+		// return the column of num
                 return column;
         }
 
-
+	// function to update the board from it's current number
+	// to the corresponding player's identifier
 	public static void updateBoard(char player, int num){
+		// initialize row and column corresponding 
+		// to where the number is in the board
 		int row = findRow(num);
 		int column = findColumn(num);
 
+		// updates the board to the players identifier
 		board[row][column] = player;
 		drawBoard();
 	}
