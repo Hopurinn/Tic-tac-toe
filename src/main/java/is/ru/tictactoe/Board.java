@@ -19,27 +19,28 @@ public class Board{
 			}
                 }
         }
-	public static String drawBoard(){
+	public static void  drawBoard(){
 		//Create a string that reads board
-		String drawStr = " | ";
+		System.out.print( " | ");
 		//Go through array 
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
 				//Adding the number of the current field to string
 				//And column separator
-				drawStr += board[i][j] + " | ";
+				System.out.print( board[i][j] + " | ");
 				//After first 3 indexes  there is a new line
 				if((i == 0 && j == 2) || (i == 1 && j == 2)){
-					drawStr += "\n ";
+					System.out.print( "\n ");
 				}
 			}
 			//Row separator
 			if(i == 0 || i == 1){
-				drawStr += " --- --- --- \n | ";
+				System.out.print( " --- --- --- \n | ");
 			}
 		}
+		System.out.println();
 		//Return the array with separators (the board)
-		return drawStr;
+		//return drawStr;
 	}
 
 	public static boolean checkPosition(int num) {
