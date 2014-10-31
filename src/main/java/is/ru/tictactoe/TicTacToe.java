@@ -9,7 +9,7 @@ public class TicTacToe {
 		Game game = new Game();
 		String c;
 		do {
-			System.out.println(game.run());
+			game.run();
 			System.out.println("Do you want to play again?(y/n)");
 			c = input.nextLine();
 		} while(c == "y");
