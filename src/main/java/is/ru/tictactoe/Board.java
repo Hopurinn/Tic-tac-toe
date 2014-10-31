@@ -135,7 +135,7 @@ public class Board{
 
 	// function that checks if someone has won yet
 	// and returns who won
-	public static char checkForWinner() {
+	public static char findWinner() {
 		if (checkRows() == 'X' || checkRows() == 'O')
 			return checkRows();
 		else if (checkColumns() == 'X' || checkColumns() == 'O')

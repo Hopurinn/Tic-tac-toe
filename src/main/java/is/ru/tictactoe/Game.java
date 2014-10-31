@@ -37,7 +37,7 @@ public class Game {
 			System.out.println("DRAW!");
 		}
 		else{
-			char winner = board.checkForWinner();
+			char winner = board.findWinner();
 			System.out.println(winner + " wins");
 		}
 	}
