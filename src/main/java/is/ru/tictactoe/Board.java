@@ -87,6 +87,7 @@ public class Board{
 		int column = findColumn(num);
 
 		board[row][column] = player;
+		drawBoard();
 	}
 
 	public static boolean checkForWin() {
