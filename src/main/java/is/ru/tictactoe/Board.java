@@ -1,7 +1,7 @@
 package is.ru.tictactoe;
 
 public class Board{
-	private static char[][] board;
+	public static char[][] board;
 	//Constructor
         public Board(){
                 //Create an double char array of size 3x3 that represents the board
