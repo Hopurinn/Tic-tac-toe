@@ -13,5 +13,6 @@ public class TicTacToe {
 			System.out.println("Do you want to play again?(y/n)");
 			c = input.next().charAt(0);
 		} while(c == 'y');
+		System.out.println("BYE! Thanks for playing, looking forward to seeing you again next time")
 	}
 }
