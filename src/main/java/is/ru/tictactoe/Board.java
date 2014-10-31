@@ -118,15 +118,15 @@ public class Board{
 
 	// function to check if any player has won the game
 	// and returns true if a winner is found and false if not
-	public boolean winnerFound() {
+	public boolean winnerFound(char player) {
 		// checks if any player has won by getting a whole row
-		if (checkRows() == 'X' || checkRows() == 'O')
+		if (checkRows(player) == player)
 			return true;
 		// checks if any player has won by getting a whole column
-		else if (checkColumns() == 'X' || checkColumns() == 'O')
+		else if (checkColumns(player) == player)
 			return true;
 		// checks if any player has won by getting a whole diagonal
-		else if (checkDiagonal() == 'X' || checkDiagonal() == 'O')
+		else if (checkDiagonal(player) == player)
 			return true;
 		// returns false if no one has won yet
 		else
@@ -135,34 +135,28 @@ public class Board{
 
 	// function that checks if someone has won yet
 	// and returns who won
-	public char findWinner() {
-		if (checkRows() == 'X' || checkRows() == 'O')
-			return checkRows();
-		else if (checkColumns() == 'X' || checkColumns() == 'O')
-			return checkColumns();
-		else if (checkDiagonal() == 'X' || checkDiagonal() == 'O')
-			return checkDiagonal();
+	public char findWinner(char player) {
+		if (checkRows(player) == player)
+			return checkRows(player);
+		else if (checkColumns(player) == player)
+			return checkColumns(player);
+		else if (checkDiagonal(player) == player)
+			return checkDiagonal(player);
 		else
 			return 'D';
 	}
 
 	// function that checks all rows, if a player has won 
 	// it returns the players identifier
-	public char checkRows() {
+	public char checkRows(char player) {
 		for (int row = 0; row < 3; row++) {
-			int xcount = 0;
-			int ocount = 0;
+			int count = 0;
 			for (int col = 0; col < 3; col++) {
-				if (board[row][col] == 'X' || board[row][col] == 'x')
-					xcount++;
-				else if (board[row][col] == 'O' || board[row][col] == 'o')
-					ocount++;
-
-				if (xcount == 3)
-					return 'X';
-				else if (ocount == 3)
-					return 'O';
+				if (board[row][col] == player)
+					count++;
 			}
+			if (count == 3)
+				return player;
 		}
 		// neither x or o returned, it is a draw
 		return 'D';
@@ -170,49 +164,42 @@ public class Board{
 
 	// function that checks all columns, if a plyer has won
 	// it returns the players identifier
-	public char checkColumns(){
-		//Searching for win in columns
+	public char checkColumns(char player){
 		for(int col = 0; col < 3; col++){
-			int xcount = 0;
-			int ocount = 0;
+			int count = 0;
 			for(int row = 0; row < 3; row++){
-				if(board[row][col] == 'X' || board[row][col] == 'x')
-					xcount++;
-				else if(board[row][col] == 'O' || board[row][col] == 'o')
-					ocount++;
-
-				if(xcount == 3)
-					return 'X';
-				else if(ocount == 3)
-					return 'O';
+				if(board[row][col] == player)
+					count++;
 			}
+			if (count == 3)
+				return player;
 		}
 		//Neither x or o returned, it is a draw (D)
 		return 'D';
 	}
 
-	public char checkDiagonal(){
-		//Check for X wins
-		//Check for win \
-		if(board[0][0] == 'X' && board[1][1] == 'X' && board[2][2] == 'X'
-		|| board[0][0] == 'x' && board[1][1] == 'x' && board[2][2] == 'x')
-			return 'X';
-		//Check for win /
-		else if(board[0][2] == 'X' && board[1][1] == 'X' && board[2][0] == 'X'
-		|| board[0][2] == 'x' && board[1][1] == 'x' && board[2][0] == 'x')
-			return 'X';
+	// function that checks the board for diagonal win
+	public char checkDiagonal(char player){
+		// counts to three to determine win
+		int count = 0;
 
-		//Check for O wins
-		//Check for \ win
-		else if(board[0][0] == 'O' && board[1][1] == 'O' && board[2][2] == 'O'
-		|| board[0][0] == 'o' && board[1][1] == 'o' && board[2][2] == 'o')
-			return 'O';
-		//Check for / win
-		else if(board[0][2] == 'O' && board[1][1] == 'O' && board[2][0] == 'O'
-		|| board[0][2] == 'o' && board[1][1] == 'o' && board[2][0] == 'o')
-			return 'O';
+		for (int i = 0; i < 3; i++) {
+			if(board[i][i] == player)
+				count++;
+			if(count == 3)
+				return player;
+		}
+		count = 0;
 
-		//Nothing returned, it is a draw (D)
+		for (int i = 0; i < 3; i++) {
+			for (int j = 2; j > -1; j--) {
+				if(board[i][j] == player)
+					count++;
+			}
+			if(count == 3)
+				return player;
+		}
+
 		return 'D';
 	}
 }

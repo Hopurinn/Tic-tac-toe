@@ -38,32 +38,32 @@ public class BoardTest {
 
 	@Test
 	public void testWinnerFound() {
-		assertEquals(false, board.winnerFound());
+		assertEquals(false, board.winnerFound('O'));
 	}
 
 	@Test
 	public void testFindWinner() {
-		assertEquals('D', board.findWinner());
+		assertEquals('D', board.findWinner('O'));
 
 		// test 2
 		board.board[0][0] = 'X';
 		board.board[1][0] = 'X';
 		board.board[2][0] = 'X';
-		assertEquals('X', board.findWinner());
+		assertEquals('X', board.findWinner('X'));
 	}
 
 	@Test
 	public void testCheckRows() {
-		assertEquals('D', board.checkRows());
+		assertEquals('D', board.checkRows('X'));
 	}
 
 	@Test
 	public void testCheckColumns() {
-		assertEquals('D', board.checkColumns());
+		assertEquals('D', board.checkColumns('X'));
 	}
 
 	@Test
 	public void testCheckDiagonal() {
-		assertEquals('D', board.checkDiagonal());
+		assertEquals('D', board.checkDiagonal('X'));
 	}
 }

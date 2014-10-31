@@ -35,7 +35,7 @@ public class Game {
 			board.updateBoard(player1, move);
 
 			// checks if a player has won and saves it in gameWon
-			gameWon = board.winnerFound();
+			gameWon = board.winnerFound(player1);
 
 			// exits the loop if the game has been won or if 
 			// there are no more moves to make
@@ -49,15 +49,19 @@ public class Game {
 			isDraw++;
 			board.updateBoard(player2, move);
 
-			gameWon = board.winnerFound();
+			gameWon = board.winnerFound(player2);
 		}
 		// print statements according to the game result
-		if(isDraw == 9){
-			System.out.println("DRAW!");
-		}
-		else{
-			char winner = board.findWinner();
+		if(board.winnerFound(player1)){
+			char winner = board.findWinner(player1);
 			System.out.println(winner + " wins");
+		}
+		else if (board.winnerFound(player1)){
+			char winner = board.findWinner(player2);
+			System.out.println(winner + " wins");
+		}
+		else {
+			System.out.println("DRAW!");
 		}
 	}
 
