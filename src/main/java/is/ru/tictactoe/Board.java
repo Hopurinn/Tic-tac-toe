@@ -89,11 +89,11 @@ public class Board{
 	}
 
 	public static boolean checkForWin() {
-		if (checkRows() == 'X' || checkRows() == 'O' || checkRows() == 'D')
+		if (checkRows() == 'X' || checkRows() == 'O')
 			return true;
-		else if (checkColumns() == 'X' || checkColumns() == 'O' || checkColumns() == 'D')
+		else if (checkColumns() == 'X' || checkColumns() == 'O')
 			return true;
-		else if (checkDiagonal() == 'X' || checkDiagonal() == 'O' || checkDiagonal() == 'D')
+		else if (checkDiagonal() == 'X' || checkDiagonal() == 'O')
 			return true;
 		else
 			return false;
