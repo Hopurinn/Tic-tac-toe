@@ -47,7 +47,7 @@ public class Board{
 
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				if (board[i][j] == num) {
+				if (board[i][j] ==  num) {
 					moveValid = false;
 				}
 			}
@@ -56,21 +56,34 @@ public class Board{
 		return moveValid;
 	}
 
-	public static void findRow(int num, int row, int column) {
+	public static int findRow(int num) {
+		int row = 0;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
-				if (num == board[i][j]) {
+				if ((char) num + 48 == board[i][j]) {
 					row = i;
-					column = j;
 				}
 			}
 		}
+		return row;
 	}
 
+        public static int findColumn(int num) {
+                int column = 0;
+                for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3; j++) {
+                                if ((char) num + 48 == board[i][j]) {
+                                        column = j;
+                                }
+                        }
+                }
+                return column;
+        }
+
+
 	public static void updateBoard(char player, int num){
-		int row = -1;
-		int column = -1;
-		findRow(num, row, column);
+		int row = findRow(num);
+		int column = findColumn(num);
 
 		board[row][column] = player;
 	}

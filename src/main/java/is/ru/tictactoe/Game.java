@@ -21,7 +21,7 @@ public class Game {
 
 			gameWon = board.checkForWin();
 
-			if (gameWon)
+			if (!gameWon)
 				break;
 
 			do {
