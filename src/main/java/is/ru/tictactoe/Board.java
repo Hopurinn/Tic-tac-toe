@@ -42,20 +42,59 @@ public class Board{
 		return drawStr;
 	}
 
-	public static boolean checkPosition(int row, int column) {
-		if (board[row][column] == 'X' || board[row][column] == 'O') {
-			return false;
+	public static boolean checkPosition(int num) {
+		boolean moveValid = true;
+
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (board[i][j] == num) {
+					moveValid = false;
+				}
+			}
 		}
-		return true;
+
+		return moveValid;
 	}
 
-	public static char updateBoard(char player, int row, int column){
+	public static void findRow(int num, int row, int column) {
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				if (num == board[i][j]) {
+					row = i;
+					column = j;
+				}
+			}
+		}
+	}
+
+	public static void updateBoard(char player, int num){
+		int row = -1;
+		int column = -1;
+		findRow(num, row, column);
+
 		board[row][column] = player;
-		return board[row][column];
 	}
 
-	public static char checkForWin() {
-		return checkRows();
+	public static boolean checkForWin() {
+		if (checkRows() == 'X' || checkRows() == 'O' || checkRows() == 'D')
+			return true;
+		else if (checkColumns() == 'X' || checkColumns() == 'O' || checkColumns() == 'D')
+			return true;
+		else if (checkDiagonal() == 'X' || checkDiagonal() == 'O' || checkDiagonal() == 'D')
+			return true;
+		else
+			return false;
+	}
+
+	public static char checkForWinner() {
+		if (checkRows() == 'X' || checkRows() == 'O')
+			return checkRows();
+		else if (checkColumns() == 'X' || checkColumns() == 'O')
+			return checkColumns();
+		else if (checkDiagonal() == 'X' || checkDiagonal() == 'O')
+			return checkDiagonal();
+		else
+			return 'D';
 	}
 
 	public static char checkRows() {

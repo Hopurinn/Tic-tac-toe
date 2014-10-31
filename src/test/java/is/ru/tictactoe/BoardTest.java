@@ -18,17 +18,7 @@ public class BoardTest {
 	@Test
 	public void testCheckPosition() {
 		Board board = new Board();
-		assertEquals(true, board.checkPosition(2,2));
-	}
-
-	@Test
-	public void testUpdateBoard() {
-		assertEquals('X', board.updateBoard('X',2,2));
-	}
-
-	@Test
-	public void testCheckForWin() {
-		assertEquals('D', board.checkForWin());	
+		assertEquals(true, board.checkPosition(2));
 	}
 
 	@Test
