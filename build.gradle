@@ -43,3 +43,4 @@ uploadArchives {
 run {
     standardInput = System.in
 }
+
