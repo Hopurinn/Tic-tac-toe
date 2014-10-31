@@ -112,20 +112,29 @@ public class Board{
 
 		// updates the board to the players identifier
 		board[row][column] = player;
+		// draws the modified board
 		drawBoard();
 	}
 
-	public static boolean checkForWin() {
+	// function to check if any player has won the game
+	// and returns true if a winner is found and false if not
+	public static boolean winnerFound() {
+		// checks if any player has won by getting a whole row
 		if (checkRows() == 'X' || checkRows() == 'O')
 			return true;
+		// checks if any player has won by getting a whole column
 		else if (checkColumns() == 'X' || checkColumns() == 'O')
 			return true;
+		// checks if any player has won by getting a whole diagonal
 		else if (checkDiagonal() == 'X' || checkDiagonal() == 'O')
 			return true;
+		// returns false if no one has won yet
 		else
 			return false;
 	}
 
+	// function that checks if someone has won yet
+	// and returns who won
 	public static char checkForWinner() {
 		if (checkRows() == 'X' || checkRows() == 'O')
 			return checkRows();
@@ -137,6 +146,8 @@ public class Board{
 			return 'D';
 	}
 
+	// function that checks all rows, if a player has won 
+	// it returns the players identifier
 	public static char checkRows() {
 		for (int row = 0; row < 3; row++) {
 			int xcount = 0;
@@ -153,9 +164,12 @@ public class Board{
 					return 'O';
 			}
 		}
+		// neither x or o returned, it is a draw
 		return 'D';
 	}
 
+	// function that checks all columns, if a plyer has won
+	// it returns the players identifier
 	public static char checkColumns(){
 		//Searching for win in columns
 		for(int col = 0; col < 3; col++){

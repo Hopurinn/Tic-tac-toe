@@ -20,7 +20,7 @@ public class Game {
 			isDraw++;
 			board.updateBoard(player1, move);
 
-			gameWon = board.checkForWin();
+			gameWon = board.winnerFound();
 
 			if (gameWon || isDraw == 9)
 				break;
@@ -31,7 +31,7 @@ public class Game {
 			isDraw++;
 			board.updateBoard(player2, move);
 
-			gameWon = board.checkForWin();
+			gameWon = board.winnerFound();
 		}
 		if(isDraw == 9){
 			System.out.println("DRAW!");
