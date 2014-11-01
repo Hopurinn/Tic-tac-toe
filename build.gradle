@@ -31,11 +31,11 @@ jar {
     }
 }
 
-// Publishing the JAR file
+// Publishing the JAR file to user root folder
 uploadArchives {
     repositories {
-       flatDir {
-           dirs 'deploy'
+       ivy {
+           url "../deploy"
        }
     }
 }
