@@ -44,7 +44,7 @@ public class BoardTest {
 		board.updateBoard('o',1);
 		assertEquals('o', board.board[0][0]);
 	}
-
+/*
 	@Test
 	public void testWinnerFound() {
 		assertEquals(false, board.winnerFound('O'));
@@ -61,40 +61,53 @@ public class BoardTest {
 		assertEquals('X', board.findWinner('X'));
 		board.initializeBoard();
 	}
-
+*/
 	@Test
 	public void testCheckRows() {
-		assertEquals('D', board.checkRows('X'));
+		assertEquals(false, board.checkRows('X'));
 		board.board[0][0] = 'X';
 		board.board[0][1] = 'X';
 		board.board[1][1] = 'X';
 		board.board[1][0] = 'O';
 		board.board[2][1] = 'O';
-		assertEquals('D', board.checkRows('X'));
+		assertEquals(false, board.checkRows('X'));
 		board.initializeBoard();
 	}
 
 	@Test
 	public void testCheckColumns() {
-		assertEquals('D', board.checkColumns('X'));
+		assertEquals(false, board.checkColumns('X'));
 		board.board[0][0] = 'X';
                 board.board[0][1] = 'X';
                 board.board[1][1] = 'X';
                 board.board[1][0] = 'O';
                 board.board[2][1] = 'O';
-                assertEquals('D', board.checkColumns('X'));
+                assertEquals(false, board.checkColumns('X'));
                 board.initializeBoard();
 	}
 
 	@Test
 	public void testCheckDiagonal() {
-		assertEquals('D', board.checkDiagonal('X'));
+		assertEquals(false, board.checkDiagonal('X'));
 		board.board[0][0] = 'X';
                 board.board[0][1] = 'X';
                 board.board[1][1] = 'X';
                 board.board[1][0] = 'O';
                 board.board[2][1] = 'O';
-                assertEquals('D', board.checkDiagonal('X'));
+                assertEquals(false, board.checkDiagonal('X'));
                 board.initializeBoard();
+	}
+
+	@Test
+	public void testCheckForWin() {
+		assertEquals(false, board.checkForWin('X'));
+		board.board[0][0] = 'X';
+                board.board[0][1] = 'X';
+                board.board[0][2] = 'O';
+		assertEquals(false, board.checkForWin('X'));
+                board.board[1][2] = 'O';
+                board.board[2][2] = 'O';
+		assertEquals(true, board.checkForWin('O'));
+		board.initializeBoard();
 	}
 }

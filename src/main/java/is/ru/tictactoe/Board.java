@@ -76,43 +76,23 @@ public class Board{
 
 		// updates the board to the players identifier
 		board[row][column] = player;
-		// draws the modified board
-		drawBoard();
 	}
 
-	// function to check if any player has won the game
-	// and returns true if a winner is found and false if not
-	public boolean winnerFound(char player) {
-		// checks if any player has won by getting a whole row
-		if (checkRows(player) == player)
+	// function that runs all checks for if specific
+	// player has won
+	public boolean checkForWin(char player) {
+		if (checkRows(player))
 			return true;
-		// checks if any player has won by getting a whole column
-		else if (checkColumns(player) == player)
+		if (checkColumns(player))
 			return true;
-		// checks if any player has won by getting a whole diagonal
-		else if (checkDiagonal(player) == player)
+		if (checkDiagonal(player))
 			return true;
-		// returns false if no one has won yet
-		else
-			return false;
-	}
-
-	// function that checks if someone has won yet
-	// and returns who won
-	public char findWinner(char player) {
-		if (checkRows(player) == player)
-			return checkRows(player);
-		else if (checkColumns(player) == player)
-			return checkColumns(player);
-		else if (checkDiagonal(player) == player)
-			return checkDiagonal(player);
-		else
-			return 'D';
+		return false;
 	}
 
 	// function that checks all rows, if a player has won 
 	// it returns the players identifier
-	public char checkRows(char player) {
+	public boolean checkRows(char player) {
 		for (int row = 0; row < 3; row++) {
 			int count = 0;
 			for (int col = 0; col < 3; col++) {
@@ -120,15 +100,15 @@ public class Board{
 					count++;
 			}
 			if (count == 3)
-				return player;
+				return true;
 		}
 		// neither x or o returned, it is a draw
-		return 'D';
+		return false;
 	}
 
 	// function that checks all columns, if a plyer has won
 	// it returns the players identifier
-	public char checkColumns(char player){
+	public boolean checkColumns(char player){
 		for(int col = 0; col < 3; col++){
 			int count = 0;
 			for(int row = 0; row < 3; row++){
@@ -136,14 +116,14 @@ public class Board{
 					count++;
 			}
 			if (count == 3)
-				return player;
+				return true;
 		}
 		//Neither x or o returned, it is a draw (D)
-		return 'D';
+		return false;
 	}
 
 	// function that checks the board for diagonal win
-	public char checkDiagonal(char player){
+	public boolean checkDiagonal(char player){
 		// counts to three to determine win
 		int count = 0;
 
@@ -152,7 +132,7 @@ public class Board{
 				count++;
 		}
 		if(count == 3)
-			return player;
+			return true;
 		count = 0;
 
 		for (int i = 0, j = 2; i < 3 && j >= 0; i++, j--) {
@@ -160,8 +140,8 @@ public class Board{
 				count++;
 		}
 		if(count == 3)
-			return player;
+			return true;
 
-		return 'D';
+		return false;
 	}
 }
