@@ -19,4 +19,4 @@ To build the project:
 
 To create local branch that tracks remote development branch:
 
-	git checkout -b development origin/development
+	git branct --track development origin/development
