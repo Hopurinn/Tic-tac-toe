@@ -43,22 +43,12 @@ public class Board{
 
 	// function that checks if the number entered
 	// is still available
-	public boolean validateMove(int num) {
-		// initialize a boolean variable to true
-		boolean moveInvalid = true;
-
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				if ((char) num + 48 == board[i][j]) {
-					// if the value is found, make moveInvalid false
-					moveInvalid = false;
-				}
-			}
-		}
-
-		// return the boolean variable moveInvalid
-		// valid = false, invalid = true
-		return moveInvalid;
+	public boolean isValidMove(int num) {
+		if (num < 1 || 9 < num)
+			return false;
+		int column = findColumn(num);
+		int row = findRow(num);
+		return (board[row][column] == '0' + num) ? true : false;
 	}
 
 	// function to identify the row of the number entered

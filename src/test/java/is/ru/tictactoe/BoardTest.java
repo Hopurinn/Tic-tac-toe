@@ -16,8 +16,13 @@ public class BoardTest {
 	}
 
 	@Test
-	public void testValidateMove() {
-		assertEquals(false, board.validateMove(2));
+	public void testIsValidMove() {
+		assertEquals(false, board.isValidMove(-1));
+		assertEquals(false, board.isValidMove(10));
+		assertEquals(true, board.isValidMove(2));
+		board.board[1][1] = 'X';
+		assertEquals(false, board.isValidMove(5));
+		board.board[1][1] = '5';
 	}
 
 	@Test

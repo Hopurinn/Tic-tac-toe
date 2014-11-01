@@ -28,7 +28,7 @@ public class Game {
 			// untill it is valid
 			do {
 			move = getMove(player1);
-			} while (board.validateMove(move));
+			} while (!board.isValidMove(move));
 
 			isDraw++;
 			// updates the board with the first players validated move
@@ -45,7 +45,7 @@ public class Game {
 			// repeated steps for player2
 			do {
 			move = getMove(player2);
-			} while (board.validateMove(move));
+			} while (!board.isValidMove(move));
 			isDraw++;
 			board.updateBoard(player2, move);
 
