@@ -44,24 +44,7 @@ public class BoardTest {
 		board.updateBoard('o',1);
 		assertEquals('o', board.board[0][0]);
 	}
-/*
-	@Test
-	public void testWinnerFound() {
-		assertEquals(false, board.winnerFound('O'));
-	}
 
-	@Test
-	public void testFindWinner() {
-		assertEquals('D', board.findWinner('O'));
-
-		// test 2
-		board.board[0][0] = 'X';
-		board.board[1][0] = 'X';
-		board.board[2][0] = 'X';
-		assertEquals('X', board.findWinner('X'));
-		board.initializeBoard();
-	}
-*/
 	@Test
 	public void testCheckRows() {
 		assertEquals(false, board.checkRows('X'));
