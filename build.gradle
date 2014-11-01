@@ -35,7 +35,7 @@ jar {
 uploadArchives {
     repositories {
        flatDir {
-           dirs 'repos'
+           dirs 'deploy'
        }
     }
 }
