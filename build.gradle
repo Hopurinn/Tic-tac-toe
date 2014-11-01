@@ -34,8 +34,8 @@ jar {
 // Publishing the JAR file
 uploadArchives {
     repositories {
-       flatDir {
-           dirs 'deploy'
+       ivy {
+           url "../deploy"
        }
     }
 }
