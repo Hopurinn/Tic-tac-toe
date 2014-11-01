@@ -59,20 +59,42 @@ public class BoardTest {
 		board.board[1][0] = 'X';
 		board.board[2][0] = 'X';
 		assertEquals('X', board.findWinner('X'));
+		board.initializeBoard();
 	}
 
 	@Test
 	public void testCheckRows() {
 		assertEquals('D', board.checkRows('X'));
+		board.board[0][0] = 'X';
+		board.board[0][1] = 'X';
+		board.board[1][1] = 'X';
+		board.board[1][0] = 'O';
+		board.board[2][1] = 'O';
+		assertEquals('D', board.checkRows('X'));
+		board.initializeBoard();
 	}
 
 	@Test
 	public void testCheckColumns() {
 		assertEquals('D', board.checkColumns('X'));
+		board.board[0][0] = 'X';
+                board.board[0][1] = 'X';
+                board.board[1][1] = 'X';
+                board.board[1][0] = 'O';
+                board.board[2][1] = 'O';
+                assertEquals('D', board.checkColumns('X'));
+                board.initializeBoard();
 	}
 
 	@Test
 	public void testCheckDiagonal() {
 		assertEquals('D', board.checkDiagonal('X'));
+		board.board[0][0] = 'X';
+                board.board[0][1] = 'X';
+                board.board[1][1] = 'X';
+                board.board[1][0] = 'O';
+                board.board[2][1] = 'O';
+                assertEquals('D', board.checkDiagonal('X'));
+                board.initializeBoard();
 	}
 }

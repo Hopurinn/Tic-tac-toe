@@ -6,19 +6,24 @@ public class Board{
         public Board(){
                 //Create an double char array of size 3x3 that represents the board
                 board = new char[3][3];
-		//Create an character for the number of field in board
-		char num = '1';
-		/* 1 2 3
-		*  4 5 6
-		*  7 8 9 */
-		//Initialize array
-                for (int i = 0; i < 3; i++){
-			for (int j = 0; j < 3; j++) {
-                        	board[i][j] = num;
-				num++;
-			}
-                }
+		initializeBoard();
         }
+
+	public void initializeBoard() {
+		//Create an character for the number of field in board
+                char num = '1';
+                /* 1 2 3
+                *  4 5 6
+                *  7 8 9 */
+                //Initialize array
+                for (int i = 0; i < 3; i++){
+                        for (int j = 0; j < 3; j++) {
+                                board[i][j] = num;
+                                num++;
+                        }
+                }
+	}
+
 	public void drawBoard(){
 		//Create a string that reads board
 		System.out.print( " | ");
@@ -145,19 +150,17 @@ public class Board{
 		for (int i = 0; i < 3; i++) {
 			if(board[i][i] == player)
 				count++;
-			if(count == 3)
-				return player;
 		}
+		if(count == 3)
+			return player;
 		count = 0;
 
-		for (int i = 0; i < 3; i++) {
-			for (int j = 2; j > -1; j--) {
-				if(board[i][j] == player)
-					count++;
-			}
-			if(count == 3)
-				return player;
+		for (int i = 0, j = 2; i < 3 && j >= 0; i++, j--) {
+			if(board[i][j] == player)
+				count++;
 		}
+		if(count == 3)
+			return player;
 
 		return 'D';
 	}
