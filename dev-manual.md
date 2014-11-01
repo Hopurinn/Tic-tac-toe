@@ -16,3 +16,7 @@ To clone to your computer do:
 To build the project:
 
 	gradle build
+
+To create local branch that tracks remote development branch:
+
+	git checkout -b development origin/development
