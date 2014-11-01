@@ -2,8 +2,10 @@
 *.class
 
 # Package Files #
+*.jar
 *.war
 *.ear
+# Run "git add -f gradle/wrapper/gradle-wrapper.jar" for Travis to build #
 
 # Gradle #
 .gradle
