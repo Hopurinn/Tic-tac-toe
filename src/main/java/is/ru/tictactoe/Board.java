@@ -13,7 +13,7 @@ public class Board{
 		*  7 8 9 */
 		//Initialize array
                 for (int i = 0; i < 3; i++){
-			for (int j = 0; j < 3; j++) { 
+			for (int j = 0; j < 3; j++) {
                         	board[i][j] = num;
 				num++;
 			}
@@ -22,7 +22,7 @@ public class Board{
 	public void drawBoard(){
 		//Create a string that reads board
 		System.out.print( " | ");
-		//Go through array 
+		//Go through array
 		for(int i = 0; i < 3; i++){
 			for(int j = 0; j < 3; j++){
 				//Adding the number of the current field to string
@@ -41,7 +41,7 @@ public class Board{
 		System.out.println();
 	}
 
-	// function that checks if the number entered 
+	// function that checks if the number entered
 	// is still available
 	public boolean validateMove(int num) {
 		// initialize a boolean variable to true
@@ -63,43 +63,12 @@ public class Board{
 
 	// function to identify the row of the number entered
 	public int findRow(int num) {
-		// initialize the row to 0
-		// this is ok because this function is only used
-		// when the input is valid/available
-		int row = 0;
-
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j < 3; j++) {
-				// changes num to it's corresponding ASCII value
-				// which can be compared to the boards char
-				if ((char) num + 48 == board[i][j]) {
-					row = i;
-				}
-			}
-		}
-
-		// return the row of num
-		return row;
+		return (num - 1) / 3;
 	}
 
 	// function to identify the column of the number entered
         public int findColumn(int num) {
-		// initialize the row to 0
-                // this is ok because this function is only used
-                // when the input is valid/available
-                int column = 0;
-                for (int i = 0; i < 3; i++) {
-                        for (int j = 0; j < 3; j++) {
-				// changes num to it's corresponding ASCII value
-				// which can be compared to the boards char
-                                if ((char) num + 48 == board[i][j]) {
-                                        column = j;
-                                }
-                        }
-                }
-
-		// return the column of num
-                return column;
+		return (num - 1) % 3;
         }
 
 	// function to update the board from it's current number

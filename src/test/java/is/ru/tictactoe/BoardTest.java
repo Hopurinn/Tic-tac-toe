@@ -23,11 +23,15 @@ public class BoardTest {
 	@Test
 	public void testFindRow() {
 		assertEquals(0, board.findRow(1));
+		assertEquals(1, board.findRow(6));
+		assertEquals(2, board.findRow(8));
 	}
 
 	@Test
 	public void testFindColumn() {
 		assertEquals(0, board.findRow(1));
+		assertEquals(1, board.findRow(5));
+		assertEquals(2, board.findRow(9));
 	}
 
 	@Test
