@@ -48,4 +48,5 @@ run {
     standardInput = System.in
 }
 
-echo "task stage { dependsOn installApp }" >> build.gradle
+task stage {
+	 dependsOn installApp 
