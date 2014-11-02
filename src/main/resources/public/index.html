@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+		<title>TicTacToe</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+		<h1>TicTacToe</h1>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+			$("#tafla").hide();
+  		  $("#takki").click(function(){
+  			$("#tafla").show();
+			$("#takki").hide();
+  		  });
+		  $("#tafla button").click(function(){
+			  var btnID = this.id;
+			  $("#" + btnID).addClass("player1");
+		  })
+		});
+		</script>
+		<div id="takki">
+			<h2> Wanna play a game? </h2>
+			<button class="letsplay">Let's Play!</button>
+		</div>
+		<div id="tafla">
+		<table class="tttboard">
+ 			 <tr>
+    			<td><button id="1"></button></td>
+    			<td><button id="2"></button></td> 
+    			<td><button id="3"></button></td>
+  			</tr>
+  			<tr>
+    		<tr>
+    			<td><button id="4"></button></td>
+    			<td><button id="5"></button></td> 
+    			<td><button id="6"></button></td>
+  			</tr>
+  			<tr>
+    			<td><button id="7"></button></td>
+    			<td><button id="8"></button></td> 
+    			<td><button id="9"></button></td>
+  			</tr>
+		</table>
+		</div>
+	</body>
+</html>
