@@ -16,7 +16,7 @@ public class TicTacToe implements SparkApplication{
 	}
 
 	public void init(){
-		get(new Route("/id"){
+		get(new Route("/id/:id"){
 			@Override
 			public Object handle(Request request, Response response){
 				return "{\"player\" : \"player2\"}";
