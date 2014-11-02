@@ -16,10 +16,10 @@ public class TicTacToe implements SparkApplication{
 	}
 
 	public void init(){
-		get(new Route("/test"){
+		get(new Route("/id/:id"){
 			@Override
 			public Object handle(Request request, Response response){
-				return "Hello";
+				return "{\"player\" : \"player2\"}";
 			}
 		});
 	}
