@@ -49,4 +49,4 @@ run {
 }
 
 task stage {
-	 dependsOn installApp 
+	 dependsOn installApp } 
