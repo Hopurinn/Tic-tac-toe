@@ -5,6 +5,4 @@ jdk:
 - openjdk7
 
 
-script:
-- ./gradlew check
-- ./gradlew seleniumXvfb
+
