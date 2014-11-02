@@ -16,10 +16,13 @@ public class TicTacToe implements SparkApplication{
 	}
 
 	public void init(){
-		get(new Route("/id/:id"){
+		final Game game = new Game();
+
+		post(new Route("/id"){
 			@Override
 			public Object handle(Request request, Response response){
-				return "{\"player\" : \"player2\"}";
+				Integer number = Integer.valueOf(request.queryParams("id"));
+				return game.makeMove(number);
 			}
 		});
 	}

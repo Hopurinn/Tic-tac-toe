@@ -23,6 +23,7 @@ dependencies {
     compile "org.slf4j:slf4j-api:1.7.5"
     testCompile "junit:junit:4.11"
     compile "com.sparkjava:spark-core:1.1.1"
+    compile 'com.google.code.gson:gson:2.3'
 }
 
 sourceCompatibility = 1.7

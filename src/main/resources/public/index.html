@@ -16,9 +16,25 @@
   			$("#tafla").show();
 			$("#takki").hide();
   		  });
+
 		  $("#tafla button").click(function(){
 			  var btnID = this.id;
+			  var url = "id/" + $(this).attr('id');
 			  $("#" + btnID).addClass("player1");
+			   $.ajax( {
+				type: "GET",
+				contentType: "application/json; charset=utf­8", 
+				url: url,
+				data: "id=" + btnID,
+				dataType: "json",
+				success: function( btnID ) {
+					alert( "GREAT SUCCESS" );;
+				},
+				error : function( xhr, err ) {
+					// Note: just for debugging purposes! 
+					alert( "ERROR ")
+				}
+			   })
 		  })
 		});
 		</script>
