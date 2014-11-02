@@ -17,15 +17,20 @@ public class Game {
 		char player1 = getPlayer();
 		char player2 = getPlayer();
 
-		for (int i = 0; i < 9; i++) {
+		int counter = 0;
+		while (true) {
 			if (play(player1)) {
 				System.out.println(player1 + " wins!");
 				return;
 			}
+			if (++counter > 8)
+				break;
 			if (play(player2)) {
 				System.out.println(player2 + " wins!");
 				return;
 			}
+			if (++counter > 8)
+                                break;
 		}
 
 		System.out.println("DRAW!");
