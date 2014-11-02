@@ -6,5 +6,11 @@ jdk:
 
 deploy:
   provider: heroku
+  app:tic-tac-toe-hopurinn
   api_key: "0701cbb7-9d27-4ed0-a97f-0a48ff96beb9"
+  on: development 
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y libxml2-dev
+
 
